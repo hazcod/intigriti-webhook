@@ -1,4 +1,4 @@
-intigriti-webghook
+intigriti-webhook
 ========================
 Go bot that publishes (non-sensitive) new intigriti findings to a webhook.
 
