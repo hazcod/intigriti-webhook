@@ -15,12 +15,14 @@ type Endpoint struct {
 	webhookURL 	string
 	headers 	map[string]string
 	format		string
+	method 		string
 	clientVersion string
 }
 
-func NewEndpoint(url *url.URL, extraHeaders map[string]string, format string, clientVersion string) Endpoint {
+func NewEndpoint(url *url.URL, method string, extraHeaders map[string]string, format string, clientVersion string) Endpoint {
 	return Endpoint{
 		webhookURL: url.String(),
+		method:  strings.ToLower(method),
 		headers:    extraHeaders,
 		clientVersion: clientVersion,
 		format: strings.ToLower(format),
@@ -56,7 +58,7 @@ func (e *Endpoint) Send(submission intigriti.Submission) error {
 		return errors.Wrap(err, "unknown output format")
 	}
 
-	req, err := http.NewRequest(http.MethodPost, e.webhookURL, bytes.NewReader(payload))
+	req, err := http.NewRequest(strings.ToUpper(e.method), e.webhookURL, bytes.NewReader(payload))
 	if err != nil {
 		return errors.Wrap(err, "could not create http request")
 	}

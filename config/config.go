@@ -13,7 +13,8 @@ type Config struct {
 	IncludeNonReady       bool   `yaml:"include_non_ready"`
 	CheckInterval         uint   `yaml:"check_interval_minutes"`
 
-	Format				 string `yaml:"string"`
+	HTTPMethod			 string `yaml:"http_method"`
+	Format				 string `yaml:"format"`
 
 	WebhookURL            string `yaml:"webhook_url"`
 	WebhookHeaders		  map[string]string `yaml:"webhook_headers"`

@@ -96,7 +96,7 @@ func RunChecker(config config.Config, clientVersion string) error {
 		return errors.Wrap(err, "invalid slack url")
 	}
 
-	slackEndpoint := webhook.NewEndpoint(webhookURL, config.WebhookHeaders, config.Format, clientVersion)
+	slackEndpoint := webhook.NewEndpoint(webhookURL, config.HTTPMethod, config.WebhookHeaders, config.Format, clientVersion)
 	intigritiEndpoint := intigriti.New(config.IntigritiClientID, config.IntigritiClientSecret)
 
 	checkFunc, err := checkForNew(config, slackEndpoint, intigritiEndpoint)
