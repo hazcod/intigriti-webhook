@@ -1,6 +1,7 @@
 intigriti-webhook
 ========================
 Go bot that publishes (non-sensitive) new intigriti findings to a webhook.
+This can publish submission notifications to e.g. [a Teams Channel](https://docs.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook#add-an-incoming-webhook-to-a-teams-channel).
 
 ## Setup
 1. Download [the latest iwh release](https://github.com/hazcod/intigriti-webhook/releases).
